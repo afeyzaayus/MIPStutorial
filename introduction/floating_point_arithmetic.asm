@@ -1,5 +1,8 @@
 .data
-msg: .asciiz "operation:\n"
+msg_add: .asciiz "addition:\n"
+msg_sub: .asciiz "\nsubtraction:\n"
+msg_mul: .asciiz "\nmultiplication:\n"
+msg_div: .asciiz "\ndivision:\n"
 
 .text
 main:
@@ -19,7 +22,7 @@ main:
 	div.s $f5, $f0, $f1
 	
 	li $v0, 4
-	la $a0, msg
+	la $a0, msg_add
 	syscall
 	
 	li $v0, 2
@@ -27,9 +30,28 @@ main:
 	syscall
 	
 	li $v0, 4
-	la $a0, msg
+	la $a0, msg_sub
 	syscall
 	
 	li $v0, 2
-	mov.s $f12, $f5 
+	mov.s $f12, $f3
+	syscall
+	
+	li $v0, 4
+	la $a0, msg_mul
+	syscall
+	
+	li $v0, 2
+	mov.s $f12, $f4
+	syscall
+	
+	li $v0, 4
+	la $a0, msg_div
+	syscall
+	
+	li $v0, 2
+	mov.s $f12, $f5
+	syscall
+	
+	li $v0, 10
 	syscall
