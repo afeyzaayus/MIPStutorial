@@ -34,9 +34,8 @@ main:
 # sonucu $v0'a yazar
 foo:
 	li $t0, 0 #result (toplam)
-	move $t1, $a0 # number of sum
+	move $t1, $a0 # number
 	li $t2, 10
-	
 	
 sum_process:
 	beq $t1, $zero, finish_sum #sayı 0 ise bitir
